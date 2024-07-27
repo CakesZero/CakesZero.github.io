@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Итого: <span id="price">0</span>₽</h2>
+  
+  <form id="form">
+    
+    <div id="type-auto" class="form radioform">
+      <input type="radio" name="type-auto" id="type-auto-0" value="0">
+      <label for="type-auto-0">Легковой</label>
+      <input type="radio" name="type-auto" id="type-auto-1" value="1">
+      <label for="type-auto-1">Кроссовер</label>
+      <input type="radio" name="type-auto" id="type-auto-2" value="2">
+      <label for="type-auto-2">Рамный</label>
+      <input type="radio" name="type-auto" id="type-auto-3" value="3">
+      <label for="type-auto-3">Мотоцикл</label>
+    </div>
+    
+    <div id="diameter" class="form radioform">
+      <input type="radio" name="diameter" id="diameter-14" value="14">
+      <label for="diameter-14">14</label>
+      <input type="radio" name="diameter" id="diameter-15" value="15">
+      <label for="diameter-15">15</label>
+      <input type="radio" name="diameter" id="diameter-16" value="16">
+      <label for="diameter-16">16</label>
+      <input type="radio" name="diameter" id="diameter-17" value="17">
+      <label for="diameter-17">17</label>
+      <input type="radio" name="diameter" id="diameter-18" value="18">
+      <label for="diameter-18">18</label>
+      <input type="radio" name="diameter" id="diameter-19" value="19">
+      <label for="diameter-19">19</label>
+      <input type="radio" name="diameter" id="diameter-20" value="20">
+      <label for="diameter-20">20</label>
+      <input type="radio" name="diameter" id="diameter-21" value="21">
+      <label for="diameter-21">21</label>
+      <input type="radio" name="diameter" id="diameter-22" value="22">
+      <label for="diameter-22">22</label>
+      <input type="radio" name="diameter" id="diameter-1" value="1">
+      <label for="diameter-1">Внутреннее</label>
+    </div>
+    
+    <div id="type-work" class="form">
+      <div id="type-work-0">
+        <div>Съём/Установка</div>
+        <div class="count">
+          <div class="count-button" id="count-minus-0">-</div>
+          <div class="count-text" id="count-text-0">0</div>
+          <div class="count-button" id="count-plus-0">+</div>
+        </div>
+      </div>
+      <div id="type-work-1">
+        <div>Шиномонтаж</div>
+        <div class="count">
+          <div class="count-button" id="count-minus-1">-</div>
+          <div class="count-text" id="count-text-1">0</div>
+          <div class="count-button" id="count-plus-1">+</div>
+        </div>
+      </div>
+      <div id="type-work-2">
+        <div>Балансировка</div>
+        <div class="count">
+          <div class="count-button" id="count-minus-2">-</div>
+          <div class="count-text" id="count-text-2">0</div>
+          <div class="count-button" id="count-plus-2">+</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form">
+      <input type="reset" value="Сбросить" onclick="resetForm()">
+      <input type="reset" value="Добавить">
+    </div>
+    
+  </form>
+  
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.form {
+  margin: 10px 50px;
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.radioform > label {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #000;
+  display: block;
+}
+
+.radioform > input {
+  display:none;
+}
+
+.radioform > input:checked + label {
+  background-color:lightgreen;
+}
+
+.count {
+  margin: 0px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.count-text {
+  padding: 5px;
+  width: 20px;
+}
+
+.count-button {
+  padding: 5px;
+  width: 20px;
+  background-color: lightgray;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+#diameter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#type-work > div {
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #000;
+  align-items: center;
+}
