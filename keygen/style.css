@@ -1,0 +1,26 @@
+body {
+  margin: auto;
+  width: 200px;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+}
+
+body * {
+  margin-bottom: 5px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+}
+
+.console-message {
+  font-size: 10px;
+}
+
+#generator {
+  text-align: center;
+}
