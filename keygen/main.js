@@ -138,15 +138,14 @@ async function _genKeys(game, keyCount) {
 
 async function genKeys(keyCount) {
   const chat_id = document.getElementById('chat-id').value
-  //| 1911896600
   if (!chat_id) return alert('Нужен chat_id!')
   const btns = document.getElementsByTagName('button')
   for (b of btns) b.disabled = true
-  for (game of games.slice(8)) {
+  for (game of games) {
     const index = games.indexOf(game) + 1
     print(`[${index}] Генерация... ${game.name}`)
     const time1 = Date.now()
-    keys =[]// await _genKeys(game, keyCount)
+    keys = await _genKeys(game, keyCount)
     const time2 = Date.now()
     const seconds = (time2-time1)/1000
     const timetext = `${Math.floor(seconds/60)}m ${Math.round(seconds%60)}s`
