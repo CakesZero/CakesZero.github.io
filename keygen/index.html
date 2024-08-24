@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Генератор</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="generator">
+    <h3>ГЕНЕРАТОР КЛЮЧЕЙ</h3>
+    <input id="chat-id" type="text" placeholder="chat_id">
+    <button onclick="getChatId()">Получить</button>
+    <select id="games"></select>
+    <div class="flex">
+      <button onclick="genKeys(4)">4 шт.</button>
+      <button onclick="genKeys(8)">8 шт.</button>
+      <button onclick="genKeys(parseInt(prompt('Введи кол-во ключей')))">Еще</button>
+    </div>
+  </div>
+  <hr>
+  <div id="console"></div>
+  <script src="keygen.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
