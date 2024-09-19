@@ -86,6 +86,7 @@ function pagesInit() {
     }
 
     const selectHamster = document.getElementById('select-hamster')
+    screenMain.innerHTML = '<h1>Выберите игру</h1>'
     selectHamster.onclick = async () => {
         const pageHamster =
             `<div id="page-hamster" class="page">
