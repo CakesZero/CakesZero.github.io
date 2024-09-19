@@ -136,11 +136,11 @@ img {
 }
 
 #hamster-log {
+    margin-top: 30px;
     font-family: monospace;
     font-size: 10px;
 }
 
 #hamster-log > p {
-    margin: 0;
-    padding: 0;
+    margin: 10px;
 }
