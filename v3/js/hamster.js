@@ -20,14 +20,14 @@ async function hamster(print) {
     print(`Баланс: ${short(balance)}.`)
     // await sleep(DELAY)
 
-    // ШИФР
-    if (!config.dailyCipher.isClaimed) {
-        const _cipher = config.dailyCipher.cipher
-        const cipher = atob(_cipher.slice(0, 3) + _cipher.slice(4))
-        const isClaimed = (await getData('clicker/claim-daily-cipher', { cipher })).dailyCipher.isClaimed
-        if (isClaimed) print('Шифр: выполнено.')
-        else print('Шифр: ошибка при выполнении.')
-    }
+    // // ШИФР
+    // if (!config.dailyCipher.isClaimed) {
+    //     const _cipher = config.dailyCipher.cipher
+    //     const cipher = atob(_cipher.slice(0, 3) + _cipher.slice(4))
+    //     const isClaimed = (await getData('clicker/claim-daily-cipher', { cipher })).dailyCipher.isClaimed
+    //     if (isClaimed) print('Шифр: выполнено.')
+    //     else print('Шифр: ошибка при выполнении.')
+    // }
 
     // МИНИ-ИГРА
     const _candles = config.dailyKeysMiniGames.Candles
@@ -59,38 +59,38 @@ async function hamster(print) {
         }
     }
 
-    // КОМБО
-    const myDailyCombo = upgrades.dailyCombo.upgradeIds
-    if (myDailyCombo.length < 3) {
-        const combo = DATA.combo
-        const expires = Date.now() - (combo.expires * 1000)
-        if (expires > 0) print(`Комбо: истекло ${Math.floor(expires / 1000 / 60)}м назад.`)
-        else {
-            const dailyComboIds = combo.combo.filter(id => (myDailyCombo.indexOf(id) < 0))
-            const dailyCombo = upgrades.upgradesForBuy.filter(card => dailyComboIds.indexOf(card.id) > -1)
-            for (const i in dailyCombo) {
-                const card = dailyCombo[i]
-                if (balance > card.price) {
-                    if (card.cooldownSeconds > 0) {
-                        const delay = card.cooldownSeconds + 5 + Math.random() * 5
-                        print(`Комбо: ожидание КД "${card.name}" (${short(card.price)}) ${Math.round(delay)}s...`)
-                        await sleep(delay * 1000)
-                    } else {
-                        print(`Комбо: покупка "${card.name}" (${short(card.price)})...`)
-                        await getData('clicker/buy-upgrade', { timestamp: Date.now(), upgradeId: card.id })
-                        balance -= card.price
-                        print(`Баланс: ${short(balance)}.`)
-                        if (i != dailyCombo.length - 1) await sleep(5000)
-                        else {
-                            const isClaimed = (await getData('clicker/claim-daily-combo')).dailyCombo.isClaimed
-                            if (isClaimed) print('Комбо: выполнено.')
-                            else print('Комбо: ошибка при выполнении.')
-                        }
-                    }
-                } else print(`Комбо: недостаточно средств "${card.name}" (${short(card.price)}).`)
-            }
-        }
-    }
+    // // КОМБО
+    // const myDailyCombo = upgrades.dailyCombo.upgradeIds
+    // if (myDailyCombo.length < 3) {
+    //     const combo = DATA.combo
+    //     const expires = Date.now() - (combo.expires * 1000)
+    //     if (expires > 0) print(`Комбо: истекло ${Math.floor(expires / 1000 / 60)}м назад.`)
+    //     else {
+    //         const dailyComboIds = combo.combo.filter(id => (myDailyCombo.indexOf(id) < 0))
+    //         const dailyCombo = upgrades.upgradesForBuy.filter(card => dailyComboIds.indexOf(card.id) > -1)
+    //         for (const i in dailyCombo) {
+    //             const card = dailyCombo[i]
+    //             if (balance > card.price) {
+    //                 if (card.cooldownSeconds > 0) {
+    //                     const delay = card.cooldownSeconds + 5 + Math.random() * 5
+    //                     print(`Комбо: ожидание КД "${card.name}" (${short(card.price)}) ${Math.round(delay)}s...`)
+    //                     await sleep(delay * 1000)
+    //                 } else {
+    //                     print(`Комбо: покупка "${card.name}" (${short(card.price)})...`)
+    //                     await getData('clicker/buy-upgrade', { timestamp: Date.now(), upgradeId: card.id })
+    //                     balance -= card.price
+    //                     print(`Баланс: ${short(balance)}.`)
+    //                     if (i != dailyCombo.length - 1) await sleep(5000)
+    //                     else {
+    //                         const isClaimed = (await getData('clicker/claim-daily-combo')).dailyCombo.isClaimed
+    //                         if (isClaimed) print('Комбо: выполнено.')
+    //                         else print('Комбо: ошибка при выполнении.')
+    //                     }
+    //                 }
+    //             } else print(`Комбо: недостаточно средств "${card.name}" (${short(card.price)}).`)
+    //         }
+    //     }
+    // }
 
     // ПРОМОКОД
     const getPromos = (await getData('clicker/get-promos'))
